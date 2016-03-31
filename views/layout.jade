@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    script(src="components/angular/angular.js")
+    script(src="angular/app.js")
+    script(src="angular/link/Links.js")
+    script(src="angular/link/LinkCtrl.js")
+    script(src="angular/link/LinkService.js")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js"></' + 'script>')
+  body(ng-app="app")
+    block content

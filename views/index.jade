@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Lista de links de coches
+  div(data-ng-controller="LinkCtrl")
+    p {{link}}
+    p(data-ng-repeat="link in links") {{link._id}}
+      strong {{link.name}}
+      a(href="{{link.link}}") link
+      strong {{price}}
+      //div
+//    - console.log(docs)
+  div
+
