@@ -3,13 +3,19 @@ extends layout
 block content
   h1= title
   p Lista de links de coches
-  div(data-ng-controller="LinkCtrl")
-    p {{link}}
-    p(data-ng-repeat="link in links") {{link._id}}
-      strong {{link.name}}
-      a(href="{{link.link}}") link
-      strong {{price}}
-      //div
-//    - console.log(docs)
-  div
-
+  div(class="row" , data-ng-controller="CarCtrl")
+    div(class="col-lg-6")
+      table(class="table")
+        tr
+          th #
+          th Date
+          th Link
+          th Price
+        tr(data-ng-repeat="car in cars track by $index")
+          td {{$index + 1}}
+          td {{car._id|date:'m/d/yyyy'}}
+          td {{toUTCDate(car._id)}}
+          td {{car.name}}
+          td
+            a(href="{{car.link}}") link
+          td {{car.price}}

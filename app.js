@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes  = require('./routes/index');
-var api_links     = require('./routes/api_links');
+var api_cars     = require('./routes/api_cars');
 var users   = require('./routes/users');
 
 var db = require('./db.js');
@@ -20,7 +20,8 @@ var app = express();
 //configration of express-livereload
 livereload = require('express-livereload');
 config = {
-  watchDir : "/home/cesar/WebstormProjects/untitled"
+  watch :     "/home/cesar/WebstormProjects/project/my-new-car",
+  watchDir :  "/home/cesar/WebstormProjects/project/my-new-car"
 };
 livereload(app, config);
 
@@ -49,7 +50,7 @@ app.use(function(req,res,next){
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/api/links', api_links);
+app.use('/api', api_cars);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
