@@ -10,12 +10,23 @@ block content
           th #
           th Date
           th Link
+          th Observations
           th Price
         tr(data-ng-repeat="car in cars track by $index")
           td {{$index + 1}}
-          td {{car._id|date:'m/d/yyyy'}}
           td {{toUTCDate(car._id)}}
           td {{car.name}}
+          td {{car.observation}}
           td
-            a(href="{{car.link}}") link
+            a(href="{{car.link}}") LINK
           td {{car.price}}
+    div(class="col-lg-6")
+      form(ng-submit="submit()")
+         div(class="form-group")
+           label Link
+           input(ng-model="car.link" type="url" class="form-control")
+         div(class="form-group")
+           label Observaciones
+           textarea(ng-model="car.observation" class="form-control")
+         div(class="form-group")
+           button(type="submit" , class="submit btn btn-success") Send Car

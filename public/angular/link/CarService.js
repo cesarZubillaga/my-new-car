@@ -14,11 +14,16 @@
    */
   function CarService($q, $http){
       function getCars(){
-        return $http.get('http://127.0.0.1:3000/api/cars');
+        return $http.get('http://localhost:3000/api/cars');
+      }
+
+      function  postCar(car){
+          return $http.post('http://localhost:3000/api/cars', car);
       }
 
       return {
-          getCars : getCars
+          getCars : getCars,
+          postCar : postCar
       }
   }
 
